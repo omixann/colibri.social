@@ -110,8 +110,11 @@ export const MentionList: Component<{
 											<Match when={(item as ChannelData).type === "voice"}>
 												<Icon variant="regular" name="speaker-low-icon" />
 											</Match>
-											<Match when={(item as ChannelData).type === "voice"}>
+											<Match when={(item as ChannelData).type === "forum"}>
 												<Icon variant="regular" name="chats-icon" />
+											</Match>
+											<Match when={(item as ChannelData).type === "link"}>
+												<Icon variant="regular" name="link-icon" />
 											</Match>
 										</Switch>
 									</span>

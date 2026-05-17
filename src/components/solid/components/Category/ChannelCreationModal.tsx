@@ -114,7 +114,7 @@ export const ChannelCreationModal: ParentComponent<{
 							</TextFieldDescription>
 						</TextField>
 						<Select
-							options={["Text", "Voice", "Forum"]}
+							options={["Text", "Voice", "Forum", "Link"]}
 							placeholder="Channel type"
 							disallowEmptySelection
 							value={channelType()}

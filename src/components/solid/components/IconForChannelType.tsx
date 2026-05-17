@@ -19,6 +19,9 @@ export const ImageForChannelType: Component<{
 			<Match when={props.channelType === "forum"}>
 				<Icon variant="regular" name="chats-icon" />
 			</Match>
+			<Match when={props.channelType === "link"}>
+				<Icon variant="regular" name="link-icon" />
+			</Match>
 		</Switch>
 	);
 };

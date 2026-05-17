@@ -80,7 +80,7 @@ const SortableChannel: Component<{
 		return props.channel.voice_members?.sort((a, b) => a.localeCompare(b));
 	});
 
-	const handleVoiceChannelJoin = (
+	const handleChannelClick = (
 		e: MouseEvent & {
 			currentTarget: HTMLAnchorElement;
 			target: Element;
@@ -103,6 +103,17 @@ const SortableChannel: Component<{
 			props.channel.name,
 		);
 	};
+
+    const buildChannelLink = () => {
+        switch (props.channel.channel_type) {
+            case "text":
+                return `/c/${params.community}/t/${props.channel.rkey}`;
+            case "voice":
+                return `/c/${params.community}/v/${props.channel.rkey}`;
+            case "link":
+                return props.channel.description;
+        }
+	}
 
 	return (
 		<div
@@ -134,8 +145,8 @@ const SortableChannel: Component<{
 			>
 				<A
 					class="group/channel text-muted-foreground flex flex-row justify-between items-center gap-2 hover:bg-card rounded-sm cursor-pointer p-1 py-0.5 pr-1.25"
-					onClick={handleVoiceChannelJoin}
-					href={`/c/${params.community}/${props.channel.channel_type.slice(0, 1)}/${props.channel.rkey}`}
+					onClick={handleChannelClick}
+					href={`${buildChannelLink()}`}
 					activeClass="bg-muted! text-foreground!"
 					classList={{
 						"bg-linear-145 from-[#090615] via-[#31226d70] to-[#e0deec30]":
@@ -183,6 +194,13 @@ const SortableChannel: Component<{
 										/>
 									</Match>
 								</Switch>
+							</Match>
+							<Match when={props.channel.channel_type === "link"}>
+								<Icon
+									variant="regular"
+									name="link-icon"
+									size={20}
+								/>
 							</Match>
 						</Switch>
 						<span

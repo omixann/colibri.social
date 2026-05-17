@@ -85,7 +85,7 @@ export type CategoryData = {
 	rkey: string;
 };
 
-export type ChannelType = "text" | "voice" | "forum";
+export type ChannelType = "text" | "voice" | "forum" | "link";
 
 export type ChannelData = {
 	name: string;

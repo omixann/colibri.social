@@ -221,7 +221,7 @@ lex.add(
 						type: {
 							type: "string",
 							description: "The type of the channel.",
-							enum: ["text", "voice", "forum"],
+							enum: ["text", "voice", "forum", "link"],
 						},
 						category: {
 							type: "string",

@@ -13,8 +13,8 @@ export const createChannel = defineAction({
 			.min(1, { message: "Name must be at least a singular chacacter." })
 			.max(32, { message: "Name must be shorter than 32 characters." }),
 		type: z
-			.enum(["text", "voice", "forum"], {
-				message: "Channel type must be one of 'text', 'voice', or 'forum'.",
+			.enum(["text", "voice", "forum", "link"], {
+				message: "Channel type must be one of 'text', 'voice', 'forum' or 'link'.",
 			})
 			.refine((type) => type !== "forum", {
 				message: "Forum channels are not yet implemented.",
